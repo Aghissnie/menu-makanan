@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>RM Etan Kuburan - Menu Makanan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Oswald:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=sangar_20261117" />
+  </head>
+  <body>
+    <div class="luxury-container">
+      <!-- Top Navigation: Logout on Top Right -->
+      <header class="top-nav">
+        <div class="nav-brand">
+          <span>EST. 2026 &bull; GOURMET SELECTION</span>
+        </div>
+        <a href="logout.php" class="btn-luxury-logout">
+          KELUAR
+        </a>
+      </header>
+
+      <!-- Main Header Area -->
+      <main class="menu-card">
+        <div class="menu-header">
+          <span class="luxury-badge">TRADITIONAL FLAVORS</span>
+          <h1 class="restaurant-name">RM ETAN <span class="accent-red">KUBURAN</span></h1>
+          <p class="restaurant-tagline">Sensasi kuliner tradisional dengan racikan resep legendaris.</p>
+        </div>
+
+        <form action="harga.php" method="post" id="orderForm">
+          <div class="table-wrapper">
+            <table class="luxury-table">
+              <thead>
+                <tr>
+                  <th class="col-center" style="width: 70px;">PILIH</th>
+                  <th>HIDANGAN &amp; DESKRIPSI</th>
+                  <th class="col-right" style="width: 140px;">HARGA</th>
+                  <th class="col-center" style="width: 100px;">PORSI</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="menu-row">
+                  <td class="col-center">
+                    <label class="custom-checkbox">
+                      <input type="checkbox" name="menu[]" value="pecel" id="check-pecel" />
+                      <span class="checkmark"></span>
+                    </label>
+                  </td>
+                  <td>
+                    <div class="item-name">
+                      <span class="item-emoji">🥗</span>
+                      <div>
+                        <strong>Nasi Pecel Komplit</strong>
+                        <div class="item-desc">Sayuran segar dengan sambal kacang racikan khas</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="col-right price-tag">Rp 10.000</td>
+                  <td class="col-center">
+                    <input type="number" name="porsi_pecel" value="1" min="1" max="99" class="porsi-input" />
+                  </td>
+                </tr>
+
+                <tr class="menu-row">
+                  <td class="col-center">
+                    <label class="custom-checkbox">
+                      <input type="checkbox" name="menu[]" value="rawon" id="check-rawon" />
+                      <span class="checkmark"></span>
+                    </label>
+                  </td>
+                  <td>
+                    <div class="item-name">
+                      <span class="item-emoji">🍲</span>
+                      <div>
+                        <strong>Rawon Daging Istimewa</strong>
+                        <div class="item-desc">Kuah kluwek hitam pekat dengan potongan daging sapi empuk</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="col-right price-tag">Rp 15.000</td>
+                  <td class="col-center">
+                    <input type="number" name="porsi_rawon" value="1" min="1" max="99" class="porsi-input" />
+                  </td>
+                </tr>
+
+                <tr class="menu-row">
+                  <td class="col-center">
+                    <label class="custom-checkbox">
+                      <input type="checkbox" name="menu[]" value="esteh" id="check-esteh" />
+                      <span class="checkmark"></span>
+                    </label>
+                  </td>
+                  <td>
+                    <div class="item-name">
+                      <span class="item-emoji">🧊</span>
+                      <div>
+                        <strong>Es Teh Jumbo</strong>
+                        <div class="item-desc">Seduhan teh melati wangi dengan es dingin segar</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="col-right price-tag">Rp 5.000</td>
+                  <td class="col-center">
+                    <input type="number" name="porsi_esteh" value="1" min="1" max="99" class="porsi-input" />
+                  </td>
+                </tr>
+
+                <tr class="menu-row">
+                  <td class="col-center">
+                    <label class="custom-checkbox">
+                      <input type="checkbox" name="menu[]" value="kopi" id="check-kopi" />
+                      <span class="checkmark"></span>
+                    </label>
+                  </td>
+                  <td>
+                    <div class="item-name">
+                      <span class="item-emoji">☕</span>
+                      <div>
+                        <strong>Kopi Tubruk Robusta</strong>
+                        <div class="item-desc">Kopi hitam pekat sangrai tradisional dengan aroma mantap</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="col-right price-tag">Rp 5.000</td>
+                  <td class="col-center">
+                    <input type="number" name="porsi_kopi" value="1" min="1" max="99" class="porsi-input" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="order-action-bar">
+            <div class="action-info">
+              <span class="info-icon">💡</span>
+              <span>Centang menu yang ingin dipesan lalu tekan tombol konfirmasi</span>
+            </div>
+            <button type="submit" name="order" id="papan" class="btn-order-luxury">
+              KONFIRMASI &amp; PESAN SEKARANG
+            </button>
+          </div>
+        </form>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,606 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Oswald:wght@500;600;700;800;900&display=swap');
+
+/* ==========================================================================
+   Brutalist-Minimalist Dark Aesthetic - RM Etan Kuburan
+   Palet: #0D0D0D (bg), #161616 (surface), #2A2A2A (border),
+          #F2F2F2 (text), #8A8A8A (muted), #D62828 (accent)
+   ========================================================================== */
+
+:root {
+  --bg-main: #0D0D0D;
+  --bg-surface: #161616;
+  --bg-surface-hover: #1C1C1C;
+  --border-color: #2A2A2A;
+  --text-main: #F2F2F2;
+  --text-muted: #8A8A8A;
+  --accent-red: #D62828;
+  --accent-red-hover: #B51F1F;
+  --font-heading: 'Oswald', 'Bebas Neue', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-body);
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Container */
+.luxury-container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* 1. Header & Top Nav */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.nav-brand {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.btn-luxury-logout {
+  display: inline-block;
+  padding: 7px 16px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.btn-luxury-logout:hover {
+  color: var(--text-main);
+  border-color: var(--accent-red);
+  background: #1a1a1a;
+}
+
+/* Main Card */
+.menu-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 48px;
+}
+
+/* Header Content */
+.menu-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.luxury-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.restaurant-name {
+  font-family: var(--font-heading);
+  font-size: 56px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--text-main);
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.accent-red {
+  color: var(--accent-red);
+}
+
+.restaurant-tagline {
+  color: var(--text-muted);
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+/* 2. Tabel Menu */
+.table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--bg-surface);
+  margin-bottom: 28px;
+}
+
+.luxury-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.luxury-table th {
+  padding: 16px 20px;
+  background-color: #121212;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.luxury-table td {
+  padding: 20px;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+
+.luxury-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Hover Baris: background sedikit lebih terang + aksen merah di kiri */
+.menu-row {
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.menu-row:hover {
+  background-color: var(--bg-surface-hover);
+  box-shadow: inset 4px 0 0 var(--accent-red);
+}
+
+.col-center {
+  text-align: center;
+}
+
+.col-right {
+  text-align: right;
+}
+
+/* 4. Emoji Menu & Deskripsi */
+.item-name {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.item-emoji {
+  font-size: 28px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.item-name strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: 0.3px;
+  margin-bottom: 4px;
+}
+
+.item-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* 3. Harga */
+.price-tag {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--accent-red);
+  white-space: nowrap;
+}
+
+/* 5. Custom Checkbox: Kotak Tajam & Merah Solid */
+.custom-checkbox {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.custom-checkbox input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+.custom-checkbox:hover input ~ .checkmark {
+  border-color: var(--accent-red);
+}
+
+.custom-checkbox input:checked ~ .checkmark {
+  background-color: var(--accent-red);
+  border-color: var(--accent-red);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid #FFFFFF;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.custom-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* 6. Input Porsi */
+.porsi-input {
+  width: 64px;
+  padding: 8px 10px;
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  color: var(--text-main);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.porsi-input:focus {
+  border-color: var(--accent-red);
+}
+
+/* 7 & 8. Action Bar & Tombol Order */
+.order-action-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.action-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.3px;
+}
+
+.btn-order-luxury, #papan {
+  width: 100%;
+  padding: 18px 24px;
+  background-color: var(--accent-red);
+  border: none;
+  border-radius: 4px;
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  display: block;
+}
+
+.btn-order-luxury:hover, #papan:hover {
+  background-color: var(--accent-red-hover);
+  transform: translateY(-2px);
+}
+
+.btn-order-luxury:active, #papan:active {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Halaman Struk / Receipt (harga.php)
+   ========================================================================== */
+
+.receipt-wrapper {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.receipt-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 44px;
+}
+
+.receipt-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.receipt-brand {
+  font-family: var(--font-heading);
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.receipt-subtitle {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--accent-red);
+  text-transform: uppercase;
+}
+
+.invoice-meta {
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+}
+
+.meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  padding: 5px 0;
+}
+
+.meta-row strong {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.receipt-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.receipt-table th {
+  padding: 12px 16px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-color);
+  background: #121212;
+}
+
+.receipt-table td {
+  padding: 16px;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 13px;
+  color: var(--text-main);
+}
+
+.receipt-item-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.receipt-total-box {
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  padding: 24px;
+  text-align: center;
+  margin: 24px 0;
+}
+
+.total-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.total-amount {
+  font-family: var(--font-heading);
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--accent-red);
+  margin-bottom: 10px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(214, 40, 40, 0.15);
+  border: 1px solid var(--accent-red);
+  color: var(--accent-red);
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.receipt-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.btn-return-menu {
+  flex: 1;
+  padding: 14px 20px;
+  background: var(--accent-red);
+  border: none;
+  border-radius: 2px;
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.btn-return-menu:hover {
+  background: var(--accent-red-hover);
+  transform: translateY(-2px);
+}
+
+.btn-logout-receipt {
+  padding: 14px 24px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  color: var(--text-muted);
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.btn-logout-receipt:hover {
+  color: var(--accent-red);
+  border-color: var(--accent-red);
+  background: #1a1a1a;
+}
+
+.receipt-footer {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.6;
+  border-top: 1px solid var(--border-color);
+  padding-top: 20px;
+}
+
+.empty-receipt-alert {
+  text-align: center;
+  padding: 30px 10px;
+}
+
+.alert-icon {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.empty-receipt-alert h3 {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  letter-spacing: 1px;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.empty-receipt-alert p {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-bottom: 24px;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 768px) {
+  body {
+    padding: 20px 12px;
+  }
+
+  .menu-card, .receipt-card {
+    padding: 24px 16px;
+  }
+
+  .restaurant-name {
+    font-size: 38px;
+    letter-spacing: 2px;
+  }
+
+  .luxury-table th, .luxury-table td {
+    padding: 12px 10px;
+  }
+
+  .item-name {
+    gap: 10px;
+  }
+
+  .item-emoji {
+    font-size: 22px;
+  }
+
+  .item-name strong {
+    font-size: 14px;
+  }
+
+  .price-tag {
+    font-size: 15px;
+  }
+
+  .porsi-input {
+    width: 50px;
+    padding: 6px 4px;
+  }
+
+  .receipt-actions {
+    flex-direction: column;
+  }
+}

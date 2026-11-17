@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Oswald:wght@500;600;700;800;900&display=swap');
+
+/* ==========================================================================
+   Executive Admin Dashboard - Brutalist Minimalist Dark Aesthetic
+   Palet: #0D0D0D (bg), #161616 (surface), #2A2A2A (border),
+          #F2F2F2 (text), #8A8A8A (muted), #D62828 (accent)
+   ========================================================================== */
+
+:root {
+    --bg-main: #0D0D0D;
+    --bg-surface: #161616;
+    --border-color: #2A2A2A;
+    --text-main: #F2F2F2;
+    --text-muted: #8A8A8A;
+    --accent-red: #D62828;
+    --accent-red-hover: #B51F1F;
+    --font-heading: 'Oswald', 'Bebas Neue', sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-body);
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.admin-wrapper {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.admin-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.brand-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.admin-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.btn-admin-logout {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--accent-red);
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+    transition: all 0.2s ease;
+}
+
+.btn-admin-logout:hover {
+    background: #1a1a1a;
+    border-color: var(--accent-red);
+}
+
+.dashboard-container {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 44px;
+}
+
+.card-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.dashboard-title {
+    font-family: var(--font-heading);
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-main);
+    margin-bottom: 8px;
+}
+
+.dashboard-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.grade-form {
+    margin-bottom: 25px;
+}
+
+.input-field-group label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.input-with-button {
+    display: flex;
+    gap: 12px;
+}
+
+input[type="number"] {
+    flex: 1;
+    padding: 14px 18px;
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+    color: var(--text-main);
+    font-size: 15px;
+    font-weight: 700;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+input[type="number"]:focus {
+    border-color: var(--accent-red);
+}
+
+.btn-submit-eval {
+    padding: 14px 28px;
+    background-color: var(--accent-red);
+    border: none;
+    border-radius: 2px;
+    color: #FFFFFF;
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    white-space: nowrap;
+}
+
+.btn-submit-eval:hover {
+    background-color: var(--accent-red-hover);
+    transform: translateY(-2px);
+}
+
+.result-card {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+    padding: 24px;
+    margin-bottom: 30px;
+}
+
+.result-badge-container {
+    text-align: center;
+    min-width: 90px;
+    padding: 12px 16px;
+    border-radius: 2px;
+    background: #141414;
+    border: 1px solid var(--border-color);
+}
+
+.grade-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+.grade-letter {
+    font-family: var(--font-heading);
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--accent-red);
+}
+
+.result-info {
+    flex: 1;
+}
+
+.keterangan-text {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 6px;
+}
+
+.score-summary {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.score-summary b {
+    color: var(--accent-red);
+}
+
+.grading-reference {
+    border-top: 1px solid var(--border-color);
+    padding-top: 25px;
+}
+
+.ref-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.ref-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+}
+
+.ref-pill {
+    padding: 10px 8px;
+    border-radius: 2px;
+    font-size: 12px;
+    text-align: center;
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+}
+
+.ref-pill b {
+    display: block;
+    font-size: 16px;
+    font-family: var(--font-heading);
+    color: var(--accent-red);
+    margin-bottom: 2px;
+}
+
+@media (max-width: 640px) {
+    .dashboard-container {
+        padding: 24px 16px;
+    }
+
+    .input-with-button {
+        flex-direction: column;
+    }
+
+    .result-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .ref-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

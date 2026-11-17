@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabel Latihan - Luxury Style</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #07090e;
+            --bg-card: rgba(16, 22, 36, 0.75);
+            --border-gold: rgba(229, 185, 95, 0.22);
+            --gold-primary: #dfa240;
+            --text-main: #f8fafc;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-sans);
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(223, 162, 64, 0.08) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.08) 0px, transparent 50%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .table-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--gold-primary);
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        td {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 55px;
+            text-align: center;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .nama {
+            width: 25%;
+            vertical-align: middle;
+            font-weight: 700;
+            background: rgba(223, 162, 64, 0.12);
+            color: var(--gold-primary);
+            border-right: 2px solid var(--border-gold);
+        }
+
+        .biru {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.5), rgba(99, 102, 241, 0.5));
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+<div class="table-card">
+    <h2>✦ Tabel Latihan Struktur Colspan & Rowspan ✦</h2>
+    <table>
+        <tr>
+            <td class="nama" rowspan="3">Aghisni</td>
+            <td>Item 1</td>
+            <td colspan="3">Item Span 3 Kolom</td>
+        </tr>
+        <tr>
+            <td>Item 2</td>
+            <td class="biru" colspan="2">Aksen Biru Mewah</td>
+            <td>Item 3</td>
+        </tr>
+        <tr>
+            <td colspan="2">Item Span 2 Kolom</td>
+            <td>Item 4</td>
+            <td>Item 5</td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
