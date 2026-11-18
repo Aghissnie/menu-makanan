@@ -49,28 +49,28 @@
         const passInput = document.getElementById('pass').value.trim();
         const nama = namaInput.toLowerCase();
 
-        // Aghis -> Menu Makanan
+        // 1. User Aghis -> Menu Makanan RM Etan Kuburan
         if (nama === 'aghis' && passInput === '123') {
             sessionStorage.setItem('loggedin', 'true');
             sessionStorage.setItem('nama', 'Aghis');
             sessionStorage.setItem('role', 'user');
             window.location.href = 'menu.html';
         }
-        // Deril -> Hitung Matematika
+        // 2. User Deril -> Hitung Luas Persegi Panjang / Balok
         else if (nama === 'deril' && passInput === '911') {
             sessionStorage.setItem('loggedin', 'true');
             sessionStorage.setItem('nama', 'Deril');
             sessionStorage.setItem('role', 'user');
             window.location.href = 'MTK.html';
         }
-        // Udin -> Menu Makanan
+        // 3. User Udin -> Struktur Tabel Colspan & Rowspan
         else if (nama === 'udin' && passInput === '456') {
             sessionStorage.setItem('loggedin', 'true');
             sessionStorage.setItem('nama', 'Udin');
             sessionStorage.setItem('role', 'user');
-            window.location.href = 'menu.html';
+            window.location.href = 'table.html';
         }
-        // Admin -> Dashboard Nilai
+        // 4. User Admin -> Dashboard Evaluasi Nilai Siswa
         else if (nama === 'admin' && passInput === '111') {
             sessionStorage.setItem('loggedin', 'true');
             sessionStorage.setItem('nama', 'Admin');

@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nama     = strtolower($raw_nama);
     $pass     = trim($_POST['pass'] ?? '');
 
-    // Aghis → Menu Makanan
+    // 1. User Aghis → Menu Makanan
     if ($nama === "aghis" && $pass === "123") {
         $_SESSION['loggedin'] = true;
         $_SESSION['nama']     = 'Aghis';
@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    // Deril → Rumus Hitung Luas Persegi Panjang
+    // 2. User Deril → Rumus Hitung Luas Persegi Panjang
     elseif ($nama === "deril" && $pass === "911") {
         $_SESSION['loggedin'] = true;
         $_SESSION['nama']     = 'Deril';
@@ -24,16 +24,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    // Udin → Menu Makanan
+    // 3. User Udin → Struktur Tabel Colspan & Rowspan
     elseif ($nama === "udin" && $pass === "456") {
         $_SESSION['loggedin'] = true;
         $_SESSION['nama']     = 'Udin';
         $_SESSION['role']     = 'user';
-        header("Location: menu.html");
+        header("Location: table.html");
         exit();
     }
 
-    // Admin → Dashboard Nilai
+    // 4. User Admin → Dashboard Evaluasi Nilai
     elseif ($nama === "admin" && $pass === "111") {
         $_SESSION['loggedin'] = true;
         $_SESSION['nama']     = 'Admin';
