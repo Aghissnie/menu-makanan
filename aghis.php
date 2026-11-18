@@ -1,8 +1,3 @@
-//Aghis pw:123
-//Deril pw:911
-//Udin pw:456
-//admin pw:111
-
 <?php
 session_start();
 
@@ -25,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['loggedin'] = true;
         $_SESSION['nama']     = 'Deril';
         $_SESSION['role']     = 'user';
-        header("Location: MTK.php");
+        header("Location: MTK.html");
         exit();
     }
 
@@ -43,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['loggedin'] = true;
         $_SESSION['nama']     = 'Admin';
         $_SESSION['role']     = 'admin';
-        header("Location: admin.php");
+        header("Location: admin.html");
         exit();
     }
 
@@ -51,13 +46,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     else {
         echo "<script>
                 alert('Salah login bg 😅\\nPeriksa kembali username dan password Anda!');
-                window.location='login.html';
+                window.location='index.html';
               </script>";
         exit();
     }
 } else {
-    // Jika diakses langsung tanpa POST
-    header("Location: login.html");
+    header("Location: index.html");
     exit();
 }
 ?>

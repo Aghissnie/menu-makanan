@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Oswald:wght@500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=sangar_20261117" />
+    <link rel="stylesheet" href="style.css?v=sangar_clean" />
   </head>
   <body>
     <div class="luxury-container">
@@ -19,7 +19,7 @@
         <div class="nav-brand">
           <span>EST. 2026 &bull; GOURMET SELECTION</span>
         </div>
-        <a href="logout.php" class="btn-luxury-logout">
+        <a href="index.html" class="btn-luxury-logout" onclick="sessionStorage.clear()">
           KELUAR
         </a>
       </header>
@@ -32,7 +32,7 @@
           <p class="restaurant-tagline">Sensasi kuliner tradisional dengan racikan resep legendaris.</p>
         </div>
 
-        <form action="harga.php" method="post" id="orderForm">
+        <form id="orderForm" onsubmit="handleOrder(event)">
           <div class="table-wrapper">
             <table class="luxury-table">
               <thead>
@@ -62,7 +62,7 @@
                   </td>
                   <td class="col-right price-tag">Rp 10.000</td>
                   <td class="col-center">
-                    <input type="number" name="porsi_pecel" value="1" min="1" max="99" class="porsi-input" />
+                    <input type="number" id="porsi_pecel" name="porsi_pecel" value="1" min="1" max="99" class="porsi-input" />
                   </td>
                 </tr>
 
@@ -84,7 +84,7 @@
                   </td>
                   <td class="col-right price-tag">Rp 15.000</td>
                   <td class="col-center">
-                    <input type="number" name="porsi_rawon" value="1" min="1" max="99" class="porsi-input" />
+                    <input type="number" id="porsi_rawon" name="porsi_rawon" value="1" min="1" max="99" class="porsi-input" />
                   </td>
                 </tr>
 
@@ -106,7 +106,7 @@
                   </td>
                   <td class="col-right price-tag">Rp 5.000</td>
                   <td class="col-center">
-                    <input type="number" name="porsi_esteh" value="1" min="1" max="99" class="porsi-input" />
+                    <input type="number" id="porsi_esteh" name="porsi_esteh" value="1" min="1" max="99" class="porsi-input" />
                   </td>
                 </tr>
 
@@ -128,7 +128,7 @@
                   </td>
                   <td class="col-right price-tag">Rp 5.000</td>
                   <td class="col-center">
-                    <input type="number" name="porsi_kopi" value="1" min="1" max="99" class="porsi-input" />
+                    <input type="number" id="porsi_kopi" name="porsi_kopi" value="1" min="1" max="99" class="porsi-input" />
                   </td>
                 </tr>
               </tbody>
@@ -147,5 +147,49 @@
         </form>
       </main>
     </div>
+
+    <script>
+    const menuCatalog = {
+        'pecel': { nama: 'Nasi Pecel Komplit', harga: 10000, icon: '🥗' },
+        'rawon': { nama: 'Rawon Daging Istimewa', harga: 15000, icon: '🍲' },
+        'esteh': { nama: 'Es Teh Jumbo', harga: 5000, icon: '🧊' },
+        'kopi':  { nama: 'Kopi Tubruk Robusta', harga: 5000, icon: '☕' }
+    };
+
+    function handleOrder(event) {
+        event.preventDefault();
+        const checkedBoxes = document.querySelectorAll('input[name="menu[]"]:checked');
+        
+        const orderedItems = [];
+        let totalBayar = 0;
+
+        checkedBoxes.forEach(checkbox => {
+            const key = checkbox.value;
+            const itemInfo = menuCatalog[key];
+            if (itemInfo) {
+                const porsiInput = document.getElementById('porsi_' + key);
+                const porsi = porsiInput ? Math.max(1, parseInt(porsiInput.value) || 1) : 1;
+                const subtotal = itemInfo.harga * porsi;
+                totalBayar += subtotal;
+
+                orderedItems.push({
+                    key: key,
+                    nama: itemInfo.nama,
+                    icon: itemInfo.icon,
+                    harga: itemInfo.harga,
+                    porsi: porsi,
+                    subtotal: subtotal
+                });
+            }
+        });
+
+        // Simpan ke sessionStorage untuk ditampilkan di harga.html
+        sessionStorage.setItem('order_items', JSON.stringify(orderedItems));
+        sessionStorage.setItem('order_total', totalBayar.toString());
+
+        // Alihkan langsung ke harga.html
+        window.location.href = 'harga.html';
+    }
+    </script>
   </body>
 </html>

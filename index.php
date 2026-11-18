@@ -1,5 +1,4 @@
 <?php
-// Arahkan ke halaman login utama
-header("Location: login.html");
+header("Location: index.html");
 exit();
 ?>

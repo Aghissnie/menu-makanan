@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>Geometric Studio - Hitung Luas Persegi Panjang</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Oswald:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-main: #0D0D0D;
+            --bg-surface: #161616;
+            --border-color: #2A2A2A;
+            --text-main: #F2F2F2;
+            --text-muted: #8A8A8A;
+            --accent-red: #D62828;
+            --accent-red-hover: #B51F1F;
+            --font-heading: 'Oswald', 'Bebas Neue', sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-body);
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 24px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .mtk-card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 44px 36px;
+            width: 100%;
+            max-width: 440px;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .badge-tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 38px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        .user-greeting {
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        .user-greeting b {
+            color: var(--accent-red);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 14px 16px;
+            background-color: var(--bg-main);
+            border: 1px solid var(--border-color);
+            border-radius: 2px;
+            color: var(--text-main);
+            font-size: 15px;
+            font-weight: 700;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        input[type="number"]:focus {
+            border-color: var(--accent-red);
+        }
+
+        .btn-calc-luxury {
+            width: 100%;
+            padding: 16px;
+            background-color: var(--accent-red);
+            border: none;
+            border-radius: 4px;
+            color: #FFFFFF;
+            font-family: var(--font-heading);
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            margin-top: 10px;
+        }
+
+        .btn-calc-luxury:hover {
+            background-color: var(--accent-red-hover);
+            transform: translateY(-2px);
+        }
+
+        .footer-action {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .btn-logout {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 2px;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        .btn-logout:hover {
+            border-color: var(--accent-red);
+            color: var(--accent-red);
+            background: #1a1a1a;
+        }
+    </style>
+</head>
+<body>
+    <div class="mtk-card">
+        <div class="header-section">
+            <span class="badge-tag">GEOMETRIC COMPUTATION</span>
+            <h1 class="card-title">Hitung Luas Bangun</h1>
+            <div class="user-greeting">
+                Akses Pengguna: <b id="userName">Deril</b>
+            </div>
+        </div>
+
+        <form id="mtkForm" onsubmit="hitungLuas(event)">
+            <div class="form-group">
+                <label for="panjang">Panjang (p)</label>
+                <input id="panjang" name="panjang" type="number" step="any" placeholder="Masukkan nilai panjang..." min="0.001" required autofocus>
+            </div>
+
+            <div class="form-group">
+                <label for="lebar">Lebar (l)</label>
+                <input id="lebar" name="lebar" type="number" step="any" placeholder="Masukkan nilai lebar..." min="0.001" required>
+            </div>
+
+            <button type="submit" class="btn-calc-luxury">
+                Kalkulasi Luas Sekarang
+            </button>
+        </form>
+
+        <div class="footer-action">
+            <a href="index.html" class="btn-logout" onclick="sessionStorage.clear()">Keluar (Logout)</a>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedName = sessionStorage.getItem('nama') || 'Deril';
+        document.getElementById('userName').textContent = savedName;
+    });
+
+    function hitungLuas(event) {
+        event.preventDefault();
+        const panjang = parseFloat(document.getElementById('panjang').value);
+        const lebar = parseFloat(document.getElementById('lebar').value);
+
+        if (isNaN(panjang) || isNaN(lebar) || panjang <= 0 || lebar <= 0) {
+            alert('Nilai panjang dan lebar harus lebih besar dari 0!');
+            return;
+        }
+
+        sessionStorage.setItem('mtk_panjang', panjang.toString());
+        sessionStorage.setItem('mtk_lebar', lebar.toString());
+        sessionStorage.setItem('mtk_hasil', (panjang * lebar).toString());
+
+        window.location.href = 'balok.html';
+    }
+    </script>
+</body>
+</html>
